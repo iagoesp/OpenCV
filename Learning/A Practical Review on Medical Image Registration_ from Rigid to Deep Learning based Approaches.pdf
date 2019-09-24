@@ -1,0 +1,767 @@
+
+<!-- saved from url=(0190)http://webcache.googleusercontent.com/search?q=cache:q9xVP52qF7AJ:www.imago.ufpr.br/sibgrapi2018/PART1-TUTORIAL_FUNDAMENTAL.pdf.pdf+&cd=1&hl=pt-BR&ct=clnk&gl=br&client=ms-android-xiaomi-rev1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body{margin-left:0;margin-right:0;margin-top:0}#bN015htcoyT__google-cache-hdr{background:#f5f5f5;font:13px arial,sans-serif;text-align:left;color:#202020;border:0;margin:0;border-bottom:1px solid #cecece;line-height:16px;padding:16px 28px 24px 28px}#bN015htcoyT__google-cache-hdr *{display:inline;font:inherit;text-align:inherit;color:inherit;line-height:inherit;background:none;border:0;margin:0;padding:0;letter-spacing:0}#bN015htcoyT__google-cache-hdr a{text-decoration:none;color:#1a0dab}#bN015htcoyT__google-cache-hdr a:hover{text-decoration:underline}#bN015htcoyT__google-cache-hdr a:visited{color:#609}#bN015htcoyT__google-cache-hdr div{display:block;margin-top:4px}#bN015htcoyT__google-cache-hdr b{font-weight:bold;display:inline-block;direction:ltr}</style></head><body bgcolor="#ffffff" vlink="blue" link="blue"><div id="bN015htcoyT__google-cache-hdr"><div><span>Esta é a versão em HTML do arquivo <a href="http://www.imago.ufpr.br/sibgrapi2018/PART1-TUTORIAL_FUNDAMENTAL.pdf.pdf">http://www.imago.ufpr.br/sibgrapi2018/PART1-TUTORIAL_FUNDAMENTAL.pdf.pdf</a>. O Google gera automaticamente versões em HTML de documentos à medida que rastreia a Web.</span></div><span style="display:inline-block;margin-top:8px;color:#717171"><span>Dica: para localizar rapidamente o termo de pesquisa nesta página, pressione <b>Ctrl+F</b> ou <b>⌘-F</b> (Mac) e use a barra de localização.</span></span></div><div style="position:relative;">
+
+
+<meta name="Creator" content="Draw">
+<meta name="Producer" content="LibreOffice 6.1">
+<meta name="CreationDate" content="D:20181109171731-02&#39;00&#39;">
+<title>A Practical Review on Medical Image Registration: from Rigid to Deep Learning based Approaches</title>
+
+<table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="1"><b>Page 1</b></a></font></td></tr></tbody></table><font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:240;left:200"><nobr>A Practical Review on Medical Image</nobr></div>
+<div style="position:absolute;top:294;left:80"><nobr>Registration: from Rigid to Deep Learning based</nobr></div>
+<div style="position:absolute;top:348;left:467"><nobr>Approaches</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:455;left:475"><nobr>Natan Andrade</nobr></div>
+<div style="position:absolute;top:496;left:434"><nobr>Fabio Augusto Faria</nobr></div>
+<div style="position:absolute;top:536;left:298"><nobr>Fábio Augusto Menocci Cappabianco</nobr></div>
+<div style="position:absolute;top:658;left:187"><nobr>Group for Innovation Based on Images and Signals</nobr></div>
+<div style="position:absolute;top:698;left:342"><nobr>Federal University of São Paulo</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:843;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="2"><b>Page 2</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:1453;left:1120"><nobr>2</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:849;left:94"><nobr><b>Summary</b></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:1005;left:60"><nobr>1.Medical image registration definition and</nobr></div>
+<div style="position:absolute;top:1059;left:85"><nobr>applications (Cappabianco)</nobr></div>
+<div style="position:absolute;top:1113;left:60"><nobr>2.Registration description (Cappabianco)</nobr></div>
+<div style="position:absolute;top:1166;left:60"><nobr>3.Classical methods (Natan)</nobr></div>
+<div style="position:absolute;top:1220;left:60"><nobr>4.Concepts of deep learning (Faria)</nobr></div>
+<div style="position:absolute;top:1274;left:60"><nobr>5.Deep learning applied to medical image</nobr></div>
+<div style="position:absolute;top:1328;left:85"><nobr>registration (Faria)</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:1511;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="3"><b>Page 3</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:2121;left:1120"><nobr>3</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:1517;left:94"><nobr><b>Introduction</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:1681;left:72"><nobr>● <font style="font-size:46px">Definition</font></nobr></div>
+<div style="position:absolute;top:1757;left:72"><nobr>● <font style="font-size:46px">Applications</font></nobr></div>
+<div style="position:absolute;top:1832;left:72"><nobr>● <font style="font-size:46px">Preprocessing</font></nobr></div>
+<div style="position:absolute;top:1907;left:72"><nobr>● <font style="font-size:46px">Main concepts</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:2179;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="4"><b>Page 4</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:2808;left:1086"><nobr>4</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:2188;left:86"><nobr><b>Medical Image Registration</b></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:2265;left:43"><nobr>• <b>Definition:</b></nobr></div>
+<div style="position:absolute;top:2266;left:351"><nobr>process of estimating an optimal</nobr></div>
+<div style="position:absolute;top:2305;left:70"><nobr>transformation between two images.</nobr></div>
+</span></font>
+<font size="3" color="#888888" face="Times"><span style="font-size:15px;font-family:Times;color:#888888">
+<div style="position:absolute;top:2808;left:1086"><nobr>4</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:2752;left:525"><nobr>Wu et al., 2013</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:2847;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="5"><b>Page 5</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:3476;left:1086"><nobr>5</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:2946;left:105"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:2937;left:144"><nobr>Fusion of Multi-modal images;</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:2992;left:156"><nobr>– <font style="font-size:34px">TC/MRI/PET</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:3077;left:105"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:3068;left:144"><nobr>Longitudinal Studies;</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:3123;left:156"><nobr>– <font style="font-size:34px">Desease development</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:3208;left:105"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:3199;left:144"><nobr>Populational Studies;</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:3254;left:156"><nobr>– <font style="font-size:34px">Etiology studies</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:14px;font-family:Times">
+<div style="position:absolute;top:3338;left:105"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:3329;left:144"><nobr>Functional studies;</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:3384;left:156"><nobr>– <font style="font-size:34px">fMRI</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:2852;left:96"><nobr><b>Related Applications</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:3515;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="6"><b>Page 6</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:4125;left:1120"><nobr>6</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:3520;left:96"><nobr><b>Overview</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:4183;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="7"><b>Page 7</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:4793;left:1120"><nobr>7</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:4186;left:88"><nobr><b>Medical Imaging Acquisition</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:4851;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="8"><b>Page 8</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:5461;left:1120"><nobr>8</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:13px;font-family:Times">
+<div style="position:absolute;top:5018;left:69"><nobr>● <b><font style="font-size:32px">DICOM </font></b><font style="font-size:32px">(Digital Imaging Communications in Medicine)</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:5062;left:105"><nobr>– <font style="font-size:32px">American College of Radiology (ACR) and National Electrical</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:32px;font-family:Times">
+<div style="position:absolute;top:5098;left:133"><nobr>Manufacturers Association (NEMA)</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:5152;left:105"><nobr>– <font style="font-size:32px">1990s several terms for access, usability, diagnoses, protocol</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:32px;font-family:Times">
+<div style="position:absolute;top:5188;left:133"><nobr>communication</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:5242;left:105"><nobr>– <font style="font-size:32px">Header: image acquisition protocol, patient information, other</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:32px;font-family:Times">
+<div style="position:absolute;top:5278;left:133"><nobr>information</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:5332;left:105"><nobr>– <font style="font-size:32px">Data: image description</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:13px;font-family:Times">
+<div style="position:absolute;top:5393;left:69"><nobr>● <font style="font-size:32px">Purpose: interoperability issues in medical imaging.</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:5438;left:105"><nobr>– <font style="font-size:32px">Not a framework or architecture for clinical workflow</font></nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:4855;left:91"><nobr><b>Format of Medical Images</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:5519;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="9"><b>Page 9</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:6129;left:1120"><nobr>9</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:13px;font-family:Times">
+<div style="position:absolute;top:5686;left:69"><nobr>● <b><font style="font-size:33px">ANALYZE</font></b></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:21px;font-family:Times">
+<div style="position:absolute;top:5731;left:107"><nobr>– <font style="font-size:29px">.img file: voxel intensities</font></nobr></div>
+<div style="position:absolute;top:5779;left:107"><nobr>– <font style="font-size:29px">.hdr file: data description</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:13px;font-family:Times">
+<div style="position:absolute;top:5837;left:69"><nobr>● <b><font style="font-size:33px">NIfTI </font></b><font style="font-size:33px">(Neuroimaging Informatics Technology Initiative)</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:21px;font-family:Times">
+<div style="position:absolute;top:5882;left:107"><nobr>– <font style="font-size:29px">National Institute of Mental Health</font></nobr></div>
+<div style="position:absolute;top:5930;left:107"><nobr>– <font style="font-size:29px">National Institute of Neurological Disorders and Stroke</font></nobr></div>
+<div style="position:absolute;top:5977;left:107"><nobr>– <font style="font-size:29px">.nii file: data and header together.</font></nobr></div>
+<div style="position:absolute;top:6025;left:107"><nobr>– <font style="font-size:29px">Progress of neuroinformatics tools</font></nobr></div>
+<div style="position:absolute;top:6072;left:107"><nobr>– <font style="font-size:29px">Intelectual properties rights.</font></nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:5523;left:91"><nobr><b>Format of Medical Images</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:6187;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="10"><b>Page 10</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:6797;left:1110"><nobr>10</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:6193;left:94"><nobr><b>Preprocessing</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:6357;left:72"><nobr>● <font style="font-size:46px">Noise/Artifact correction</font></nobr></div>
+<div style="position:absolute;top:6433;left:72"><nobr>● <font style="font-size:46px">Intensity normalization</font></nobr></div>
+<div style="position:absolute;top:6508;left:72"><nobr>● <font style="font-size:46px">Inhomogeneity correction</font></nobr></div>
+<div style="position:absolute;top:6583;left:72"><nobr>● <font style="font-size:46px">Region of Interest delineation</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:29px;font-family:Times">
+<div style="position:absolute;top:6644;left:123"><nobr>– <font style="font-size:40px">Mask segmentation</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:6855;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="11"><b>Page 11</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:7465;left:1111"><nobr>11</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:6861;left:94"><nobr><b>Noise/Artifact Correction</b></nobr></div>
+</span></font>
+<font size="5" color="#000080" face="Times"><span style="font-size:34px;font-family:Times;color:#000080">
+<div style="position:absolute;top:7046;left:165"><nobr>Weak</nobr></div>
+<div style="position:absolute;top:7087;left:165"><nobr>filtering</nobr></div>
+<div style="position:absolute;top:7039;left:1060"><nobr>Strong</nobr></div>
+<div style="position:absolute;top:7079;left:1060"><nobr>filtering</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:7523;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="12"><b>Page 12</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:8133;left:1110"><nobr>12</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:7529;left:92"><nobr><b>High-frequency Noise Filtering</b></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:7641;left:69"><nobr>● <font style="font-size:52px">1</font><font style="font-size:29px">st </font><font style="font-size:52px">generation of filters: isotropics</font></nobr></div>
+<div style="position:absolute;top:7702;left:95"><nobr>● <font style="font-size:52px">e.g. Mean, median, gaussian</font></nobr></div>
+<div style="position:absolute;top:7764;left:69"><nobr>● <font style="font-size:52px">2</font><font style="font-size:29px">nd </font><font style="font-size:52px">generation of filters: local anisotropics</font></nobr></div>
+<div style="position:absolute;top:7825;left:95"><nobr>● <font style="font-size:52px">e.g. diffusion, bilateral [Smith 1997]</font></nobr></div>
+<div style="position:absolute;top:7886;left:69"><nobr>● <font style="font-size:52px">3</font><font style="font-size:29px">rd </font><font style="font-size:52px">generation of filters: non-local</font></nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:7932;left:95"><nobr>anisotropics</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:8007;left:95"><nobr>● <font style="font-size:52px">e.g. non-local means [Tristan-Vega 2012],</font></nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:8052;left:120"><nobr>BM3D, PLOW</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:8191;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="13"><b>Page 13</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:8801;left:1110"><nobr>13</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:8197;left:94"><nobr><b>Intensity Normalization</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:8291;left:83"><nobr>● <font style="font-size:46px">Used to standardize</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:8332;left:121"><nobr>intensity range and</nobr></div>
+<div style="position:absolute;top:8386;left:121"><nobr>distribution of a set</nobr></div>
+<div style="position:absolute;top:8439;left:121"><nobr>of images.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:8528;left:83"><nobr>● <font style="font-size:46px">Based on</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:8568;left:121"><nobr>landmarks.</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:29px;font-family:Times">
+<div style="position:absolute;top:8643;left:134"><nobr>– <font style="font-size:40px">Normally, just mean</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:40px;font-family:Times">
+<div style="position:absolute;top:8686;left:172"><nobr>and quartiles are</nobr></div>
+<div style="position:absolute;top:8733;left:172"><nobr>enough.</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:29px;font-family:Times">
+<div style="position:absolute;top:8801;left:134"><nobr>– <font style="font-size:40px">[Zhuge 2006]</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:8859;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="14"><b>Page 14</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:9469;left:1110"><nobr>14</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:8865;left:94"><nobr><b>Intensity Normalization</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:8994;left:35"><nobr>● <font style="font-size:46px">Two steps method</font></nobr></div>
+<div style="position:absolute;top:9048;left:61"><nobr>● <font style="font-size:46px">1</font><font style="font-size:25px">st </font><font style="font-size:46px">– training: find landmarks in the histogram of input</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:9090;left:86"><nobr>image.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:9157;left:61"><nobr>● <font style="font-size:46px">2</font><font style="font-size:25px">nd </font><font style="font-size:46px">– transformation: find landmarks in target images</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:9198;left:86"><nobr>and map them to the ones of the training image.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:9265;left:35"><nobr>● <font style="font-size:46px">Consequences:</font></nobr></div>
+<div style="position:absolute;top:9319;left:61"><nobr>● <font style="font-size:46px">Improves inhomogeneity correction.</font></nobr></div>
+<div style="position:absolute;top:9373;left:61"><nobr>● <font style="font-size:46px">Improve registration. (around 15%)</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:9527;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="15"><b>Page 15</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:10137;left:1110"><nobr>15</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:9533;left:94"><nobr><b>Inhomogeneity Correction</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:9649;left:70"><nobr>● <font style="font-size:46px">Consists of a multiplicative low-frequency</font></nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:9689;left:108"><nobr>noise.</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:29px;font-family:Times">
+<div style="position:absolute;top:9763;left:121"><nobr>–</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:9842;left:70"><nobr>● <font style="font-size:46px">Depends on:</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:29px;font-family:Times">
+<div style="position:absolute;top:9903;left:121"><nobr>– <font style="font-size:40px">Magnetic field or scanner features</font></nobr></div>
+<div style="position:absolute;top:9967;left:121"><nobr>– <font style="font-size:40px">Scanned subject</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:39px;font-family:Times">
+<div style="position:absolute;top:9756;left:155"><nobr><i>I</i>(<i>s</i>)=^<i>I</i>(<i>s</i>)∗<i>B</i>(<i>s</i>)+ η(<i>s</i>)</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:10195;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="16"><b>Page 16</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:10805;left:1110"><nobr>16</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:10201;left:94"><nobr><b>Inhomogeneity Correction</b></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:10318;left:57"><nobr>● <font style="font-size:52px">General methods:</font></nobr></div>
+<div style="position:absolute;top:10379;left:83"><nobr>● <font style="font-size:52px">N3 [Sled 1998], N4 [Tustison 2010]</font></nobr></div>
+<div style="position:absolute;top:10439;left:108"><nobr>● <font style="font-size:52px">Used over any kind of images.</font></nobr></div>
+<div style="position:absolute;top:10500;left:57"><nobr>● <font style="font-size:52px">Brain specific methods:</font></nobr></div>
+<div style="position:absolute;top:10560;left:83"><nobr>● <font style="font-size:52px">BFC, FAST (also segments tissues)</font></nobr></div>
+<div style="position:absolute;top:10621;left:108"><nobr>● <font style="font-size:52px">Used over skull stripped brain images.</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:10863;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="17"><b>Page 17</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:11473;left:1110"><nobr>17</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:10869;left:94"><nobr><b>Region of Interest</b></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:10986;left:70"><nobr>● <font style="font-size:52px">Improves overall registration quality.</font></nobr></div>
+<div style="position:absolute;top:11068;left:70"><nobr>● <font style="font-size:52px">Focus on more important region.</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:11531;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="18"><b>Page 18</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:12141;left:1110"><nobr>18</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:11688;left:63"><nobr><i>1. Deformation Model</i></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:11733;left:99"><nobr>I. Computational efficiency  vs flexibility</nobr></div>
+<div style="position:absolute;top:11773;left:99"><nobr>II. Transformation nature</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:11853;left:63"><nobr><i>2. Matching Criteria</i></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:11899;left:99"><nobr>I. Measurement of (dis)similarity</nobr></div>
+<div style="position:absolute;top:11939;left:99"><nobr>II. Geometric (landmarks) vs Iconic (pixels)</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:12019;left:63"><nobr><i>3. Optimization Method</i></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:23px;font-family:Times">
+<div style="position:absolute;top:12065;left:99"><nobr>I. Continuous vs discrete</nobr></div>
+<div style="position:absolute;top:12105;left:99"><nobr>II. Criteria and regularization</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:11540;left:91"><nobr><b>Strutucture of Registration </b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:12199;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="19"><b>Page 19</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:12828;left:1075"><nobr>19</nobr></div>
+</span></font>
+<font size="4" color="#222222" face="Times"><span style="font-size:25px;font-family:Times;color:#222222">
+<div style="position:absolute;top:12496;left:804"><nobr>(Avants, 2011)</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:12204;left:87"><nobr><b>Deformation Model</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:12867;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="20"><b>Page 20</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:13496;left:1075"><nobr>20</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:12872;left:87"><nobr><b>Deformation Model</b></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:12952;left:82"><nobr>● <font style="font-size:52px">Deformation model selection:</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:34px;font-family:Times">
+<div style="position:absolute;top:13014;left:133"><nobr>– <font style="font-size:46px">Depends on application</font></nobr></div>
+<div style="position:absolute;top:13081;left:133"><nobr>– <font style="font-size:46px">Depends on time requirements</font></nobr></div>
+<div style="position:absolute;top:13147;left:133"><nobr>– <font style="font-size:46px">Depends on image quality</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:13535;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="21"><b>Page 21</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:14164;left:1075"><nobr>21</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:13540;left:87"><nobr><b>Deformation Model</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:16px;font-family:Times">
+<div style="position:absolute;top:13638;left:82"><nobr>● <font style="font-size:39px">Rigid</font></nobr></div>
+<div style="position:absolute;top:13700;left:82"><nobr>● <font style="font-size:39px">Volume/topolgy preservation</font></nobr></div>
+<div style="position:absolute;top:13762;left:82"><nobr>● <font style="font-size:39px">Affine</font></nobr></div>
+<div style="position:absolute;top:13825;left:82"><nobr>● <font style="font-size:39px">Flow/Diffusion</font></nobr></div>
+<div style="position:absolute;top:13887;left:82"><nobr>● <font style="font-size:39px">Elastic</font></nobr></div>
+<div style="position:absolute;top:13949;left:82"><nobr>● <font style="font-size:39px">Viscous</font></nobr></div>
+<div style="position:absolute;top:14012;left:82"><nobr>● <font style="font-size:39px">Free-form</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:14203;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="22"><b>Page 22</b></a></font></td></tr></tbody></table></div><font size="3" color="#8b8b8b" face="Times"><span style="font-size:15px;font-family:Times;color:#8b8b8b">
+<div style="position:absolute;top:14832;left:1075"><nobr>22</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:46px;font-family:Times">
+<div style="position:absolute;top:14208;left:87"><nobr><b>Matching Criteria</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:14305;left:81"><nobr>● <font style="font-size:37px">Geometric</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:27px;font-family:Times">
+<div style="position:absolute;top:14354;left:130"><nobr>– <font style="font-size:37px">Feature distance</font></nobr></div>
+<div style="position:absolute;top:14410;left:130"><nobr>– <font style="font-size:37px">Geometric distance</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:14478;left:81"><nobr>● <font style="font-size:37px">Iconic</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:27px;font-family:Times">
+<div style="position:absolute;top:14527;left:130"><nobr>– <font style="font-size:37px">Sum of square</font></nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:37px;font-family:Times">
+<div style="position:absolute;top:14568;left:166"><nobr>distances</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:14631;left:182"><nobr>● <font style="font-size:37px">Unimodal</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:27px;font-family:Times">
+<div style="position:absolute;top:14680;left:130"><nobr>– <font style="font-size:37px">Mutual Information</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:15px;font-family:Times">
+<div style="position:absolute;top:14741;left:182"><nobr>● <font style="font-size:37px">Multi-modal</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:14871;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="23"><b>Page 23</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:15481;left:1110"><nobr>23</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:14871;left:93"><nobr><b>Examples of Metrics </b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:15539;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="24"><b>Page 24</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:16149;left:1110"><nobr>24</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:15543;left:92"><nobr><b>Optimization Method</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:15651;left:72"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:15642;left:111"><nobr>Non-exaustive search method</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:16034;left:99"><nobr>http://users.cecs.anu.edu.au/~ramtin/papers/2010/SPM_2010.pdf</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:16207;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="25"><b>Page 25</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:16817;left:1110"><nobr>25</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:16875;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="26"><b>Page 26</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:17485;left:1110"><nobr>26</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:16879;left:95"><nobr><b>Desirable Features</b></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:17045;left:72"><nobr>● <font style="font-size:44px">Consistent inverse transform</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:17105;left:121"><nobr>– <font style="font-size:38px">Penalize distinct inverse transform</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:17181;left:72"><nobr>● <font style="font-size:44px">Symmetry</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:17240;left:121"><nobr>– <font style="font-size:38px">Must produce symmetric transformations</font></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:18px;font-family:Times">
+<div style="position:absolute;top:17316;left:72"><nobr>● <font style="font-size:44px">Topology preservation / Diffeomorphism</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:17376;left:121"><nobr>– <font style="font-size:38px">Internal and external structures</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:17543;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="27"><b>Page 27</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:18153;left:1110"><nobr>27</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:25px;font-family:Times">
+<div style="position:absolute;top:18132;left:486"><nobr>Wu et al., 2013</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:17546;left:91"><nobr><b>Consistency and Symmetry</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:18211;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="28"><b>Page 28</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:19px;font-family:Times">
+<div style="position:absolute;top:18821;left:1110"><nobr>28</nobr></div>
+</span></font>
+<font size="3" color="#222222" face="Times"><span style="font-size:15px;font-family:Times;color:#222222">
+<div style="position:absolute;top:18802;left:378"><nobr>( Inspired in Avants et al., 2011)</nobr></div>
+</span></font>
+<font size="6" face="Times"><span style="font-size:40px;font-family:Times">
+<div style="position:absolute;top:18221;left:92"><nobr><b>Topology Preservation / Diffeomorphicity</b></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:18879;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="29"><b>Page 29</b></a></font></td></tr></tbody></table></div>
+<div style="position:absolute;top:18879;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="30"><b>Page 30</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:18907;left:73"><nobr><i>AIR – Woods et al.(1998)</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:19020;left:7"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19010;left:47"><nobr>Automated Image Registration (AIR)</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:19109;left:7"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19099;left:47"><nobr>It is a tool that brought several</nobr></div>
+<div style="position:absolute;top:19125;left:47"><nobr>contributions to the registry area</nobr></div>
+<div style="position:absolute;top:19151;left:47"><nobr>mainly in the field of deformation</nobr></div>
+<div style="position:absolute;top:19177;left:47"><nobr>models using polynomials of various</nobr></div>
+<div style="position:absolute;top:19203;left:47"><nobr>orders.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:9px;font-family:Times">
+<div style="position:absolute;top:19303;left:7"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19293;left:47"><nobr>Thee Similarity Metrics</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:17px;font-family:Times">
+<div style="position:absolute;top:19338;left:46"><nobr>–</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19333;left:91"><nobr>Sum of Square Difference</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:17px;font-family:Times">
+<div style="position:absolute;top:19379;left:46"><nobr>–</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19374;left:91"><nobr>Ratio Image Uniformity (RIU)</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:17px;font-family:Times">
+<div style="position:absolute;top:19420;left:46"><nobr>–</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:24px;font-family:Times">
+<div style="position:absolute;top:19415;left:91"><nobr>Variant RIU</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:19547;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="31"><b>Page 31</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:19575;left:73"><nobr><i>Demons – THIRION et al.(1998)</i></nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:19670;left:49"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:19660;left:80"><nobr>The method developed by Thiron is based on the idea of using the Maxwell demon problem.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:19754;left:49"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:19744;left:80"><nobr>Applying this idea, the "demon" will determine to which place the voxel should go and so find their</nobr></div>
+<div style="position:absolute;top:19769;left:80"><nobr>correspondence.</nobr></div>
+</span></font>
+<font size="2" face="Times"><span style="font-size:8px;font-family:Times">
+<div style="position:absolute;top:19863;left:49"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:22px;font-family:Times">
+<div style="position:absolute;top:19853;left:80"><nobr>The similarity metric used corresponds to a difference between the intensities, and this force comes</nobr></div>
+<div style="position:absolute;top:19878;left:80"><nobr>from the calculation of the optical flow that will guide interactively adding the deformation to the total</nobr></div>
+<div style="position:absolute;top:19902;left:80"><nobr>displacement that is initially zero</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:20215;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="32"><b>Page 32</b></a></font></td></tr></tbody></table></div><font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:20406;left:97"><nobr>➔ <b>Example of the registration process utilizing Demons</b></nobr></div>
+<div style="position:absolute;top:20451;left:97"><nobr>I. Select all elements of the image as Demon</nobr></div>
+<div style="position:absolute;top:20492;left:97"><nobr>II. Calculate the force of the demon considering the general restriction by optical</nobr></div>
+<div style="position:absolute;top:20534;left:144"><nobr>flow</nobr></div>
+<div style="position:absolute;top:20575;left:97"><nobr>III. Assume a non-parametric deformation model that is regularized by applying a</nobr></div>
+<div style="position:absolute;top:20617;left:144"><nobr>filter to each iteration.</nobr></div>
+<div style="position:absolute;top:20658;left:97"><nobr>IV. Use a trilinear interpolation.</nobr></div>
+<div style="position:absolute;top:20700;left:97"><nobr>V. Applying the Gaussian filter to each estimated field deformation in an</nobr></div>
+<div style="position:absolute;top:20741;left:144"><nobr>interaction.</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:20243;left:73"><nobr><i>Demons – THIRION et al.(1998)</i></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:20883;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="33"><b>Page 33</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:21044;left:16"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:21033;left:54"><nobr>Several theoretical explanations about</nobr></div>
+<div style="position:absolute;top:21063;left:54"><nobr>Thirion method.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:21177;left:16"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:21165;left:54"><nobr>It used the strain exponentiation field</nobr></div>
+<div style="position:absolute;top:21195;left:54"><nobr>to ensure the diffeomorphic mapping.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:21310;left:16"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:21298;left:54"><nobr>Representation of log-domain</nobr></div>
+<div style="position:absolute;top:21328;left:54"><nobr>transformations enabled forward and</nobr></div>
+<div style="position:absolute;top:21358;left:54"><nobr>backward forces separately.</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:20902;left:29"><nobr><i>Demons Diffeomorphic – Vercauteren et., (2008)</i></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:21551;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="34"><b>Page 34</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:21579;left:73"><nobr><i>FSL –  FMRIB Software Library (2001)</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:10px;font-family:Times">
+<div style="position:absolute;top:21701;left:67"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:26px;font-family:Times">
+<div style="position:absolute;top:21694;left:104"><nobr>FLIRT: FMRIB's Linear Image</nobr></div>
+<div style="position:absolute;top:21726;left:104"><nobr>Registration Tool</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:10px;font-family:Times">
+<div style="position:absolute;top:21837;left:67"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:26px;font-family:Times">
+<div style="position:absolute;top:21830;left:104"><nobr>A global, multi-start and multi-</nobr></div>
+<div style="position:absolute;top:21862;left:104"><nobr>resolution optimization strategy</nobr></div>
+<div style="position:absolute;top:21894;left:104"><nobr>specifically for affine image</nobr></div>
+<div style="position:absolute;top:21926;left:104"><nobr>registration problems was</nobr></div>
+<div style="position:absolute;top:21958;left:104"><nobr>proposed.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:10px;font-family:Times">
+<div style="position:absolute;top:22070;left:67"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:26px;font-family:Times">
+<div style="position:absolute;top:22063;left:104"><nobr>FNIRT: FMRIB's Non Linear</nobr></div>
+<div style="position:absolute;top:22095;left:104"><nobr>Image Registration Tool</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:22219;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="35"><b>Page 35</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:22226;left:59"><nobr><i>Dartel –  Ashburner et al.,(2007)</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:22325;left:63"><nobr>●</nobr></div>
+</span></font>
+<font size="5" color="#242021" face="Times"><span style="font-size:30px;font-family:Times;color:#242021">
+<div style="position:absolute;top:22315;left:110"><nobr>Diffeomorphic <font color="#000000">Anatomical Registration using Exponentiated Lie Algebra</font></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:22887;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="36"><b>Page 36</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:23039;left:72"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:23027;left:111"><nobr>Deformable Registration via Attribute Matching and Mutual-Saliency Weighting</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:22910;left:60"><nobr><i>DRAMMS – Ou et al., (2009)</i></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:23555;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="37"><b>Page 37</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:23765;left:29"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:23753;left:68"><nobr>DROP is a deformable registry</nobr></div>
+<div style="position:absolute;top:23783;left:68"><nobr>that has a great contribution in</nobr></div>
+<div style="position:absolute;top:23813;left:68"><nobr>the field of numerical</nobr></div>
+<div style="position:absolute;top:23843;left:68"><nobr>optimization.</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:23915;left:29"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:23903;left:68"><nobr>The processing time of the</nobr></div>
+<div style="position:absolute;top:23933;left:68"><nobr>registry has dropped considerably</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:24005;left:29"><nobr>●</nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:23994;left:68"><nobr>Minimizing the energy of a</nobr></div>
+<div style="position:absolute;top:24024;left:68"><nobr>discrete Markov Random Field</nobr></div>
+<div style="position:absolute;top:24054;left:68"><nobr>(MRF).</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:23578;left:59"><nobr><i>DROP – Glocker et al.,(2011)</i></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:24223;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="38"><b>Page 38</b></a></font></td></tr></tbody></table></div><font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:24351;left:60"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:24338;left:98"><nobr>Advanced Normalization Tools</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:24405;left:60"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:24393;left:98"><nobr>ANTsR, ANTsPy, ANTsRNet.</nobr></div>
+</span></font>
+<font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:24246;left:59"><nobr><i>SyN – Avants et al.,(2011)</i></nobr></div>
+</span></font>
+
+<div style="position:absolute;top:24891;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="39"><b>Page 39</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:24914;left:59"><nobr><i>SyN – Avants et al.,(2011)</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:25019;left:60"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:25006;left:99"><nobr>Advanced Normalization Tools</nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:12px;font-family:Times">
+<div style="position:absolute;top:25074;left:60"><nobr>●</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:30px;font-family:Times">
+<div style="position:absolute;top:25061;left:99"><nobr>ANTsR, ANTsPy, ANTsRNet.</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:25559;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="40"><b>Page 40</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:25582;left:59"><nobr><i>S-Hammer – Wu et al.,(2013)</i></nobr></div>
+</span></font>
+<font size="3" face="Times"><span style="font-size:11px;font-family:Times">
+<div style="position:absolute;top:25687;left:60"><nobr>●</nobr></div>
+</span></font>
+<font size="4" color="#231f20" face="Times"><span style="font-size:28px;font-family:Times;color:#231f20">
+<div style="position:absolute;top:25675;left:99"><nobr>Hierarchical Attribute-Guided <font color="#000000">Symmetric Diffeomorphic Registration for MR Brain</font></nobr></div>
+</span></font>
+<font size="4" face="Times"><span style="font-size:28px;font-family:Times">
+<div style="position:absolute;top:25705;left:99"><nobr>Image</nobr></div>
+</span></font>
+
+<div style="position:absolute;top:26227;left:0"><hr><table border="0" width="100%"><tbody><tr><td bgcolor="eeeeee" align="right"><font face="arial,sans-serif"><a name="41"><b>Page 41</b></a></font></td></tr></tbody></table></div><font size="7" face="Times"><span style="font-size:52px;font-family:Times">
+<div style="position:absolute;top:26254;left:338"><nobr>Evaluate of Registration</nobr></div>
+</span></font>
+<font size="5" face="Times"><span style="font-size:31px;font-family:Times">
+<div style="position:absolute;top:26433;left:51"><nobr>Moving</nobr></div>
+<div style="position:absolute;top:26470;left:63"><nobr>Image</nobr></div>
+<div style="position:absolute;top:26567;left:63"><nobr>Target</nobr></div>
+<div style="position:absolute;top:26605;left:65"><nobr>Image</nobr></div>
+<div style="position:absolute;top:26724;left:59"><nobr>Overlap</nobr></div>
+<div style="position:absolute;top:26762;left:71"><nobr>Image</nobr></div>
+</span></font>
+
+
+</div></body></html>
