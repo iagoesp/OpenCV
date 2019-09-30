@@ -1,12 +1,5 @@
-#VERSION 0.0.0
-print ("------ AUTHOR: NaTaN ANDRADE ------")
-print ("Universidade Federal de Sao Paulo (UNIFESP)")
-print ("Instituto de Ciencia e Tecnologia (ICT)") 
-print ("Sao Jose dos Campos (SJC)")
-print ("Estado de Sao Paulo (SP) ")
-print ("BRASIL")
-
 import os
+import cv2
 import os.path
 import matplotlib.pyplot as plt
 import matplotlib
@@ -16,38 +9,49 @@ import glob as glob
 from os.path import basename
 from scipy import interpolate
 from glob import glob
+
 matplotlib.interactive(True)
 
 #os.system("for i in `ls *.gz`; do gzip -d $i; done")
 files = []
 def encontrar_arq(caminho):
-    for r, d, f in os.walk(caminho):
-        for file in f:
-            if '.txt' in file:
-                files.append(os.path.join(r, file))
-
-    for f in files:
-        print(f)
-
     print(caminho)
-    arquivos = glob(caminho + '*.nii')
-    print(arquivos)
+    for pastaAtual, subPasta, arq in os.walk(caminho):
+        print("end da pasta atual: {}".format(pastaAtual))
+        print("end da subPasta: {}".format(subPasta))
+        for file in arq:
+            if '.nii' in file:
+                files.append(os.path.join(pastaAtual, file))
+
+    print("size = {}".format(len(files)))
+    for arq in files:
+        print("tem formato .nii: {}".format(arq))
+#        print(arq)
+
+    arquivos = files
+#    print("glob: {}".format(arquivos))
 
     for arquivo in arquivos:
         print(arquivo)
-        return arquivos
+
+    return arquivos
 
 #Path Images
-caminho ="c:\\Users\\Iago.LabCG-PC\\Documents\\OpenCV\\dataset\\Pattern1/"  
-    
+caminho = "dataset/Pattern1"
+
 resp = encontrar_arq(caminho)
-print(resp[0])
+print("resp 0: {}".format(resp[0]))
+print("resp 1: {}".format(resp[1]))
 
 #Example for two images
-img_filepath = "../dataset/Pattern1/Pattern1__20160409103459_24.nii"
-img_mask_filepath = "../dataset/Pattern1/Pattern1__20160409103459_23.nii"
-output_filepath = os.path.join('../dataset','Pattern1'+ basename(resp[0]), "")
-
+img_filepath = resp[0]
+img_mask_filepath = resp[1]
+print(basename(resp[0]))
+base = basename(resp[0]).split(".")
+output_filepath = os.path.join('',''+ base[0], 'img')
+os.makedirs(output_filepath)
+print(output_filepath)
+print("done")
 PC1 = 0.2
 PC2 = 99.8
 
@@ -77,6 +81,7 @@ std_input = f(input_data) * input_mask
 
 # Saves image
 std_img = nib.Nifti1Image(std_input, input_img.affine, input_img.header)
+#print(std_img)
 nib.save(std_img, output_filepath)
 
 input_img = nib.load(img_filepath)
@@ -84,24 +89,16 @@ input_data = input_img.get_data()
 input_data = np.rot90(input_data)
 np.shape(input_data)
 
-input_img2 = nib.load(output_filepath)
+input_img2 = nib.load(output_filepath + ".nii")
 input_data2 = input_img.get_data()
 input_data2 = np.rot90(input_data2)
 np.shape(input_data2)
 
-plt.figure()
-plt.subplot(1,2,1)
-plt.title('Input')
-#Choose Layer Brain
-plt.imshow(input_data[:,:,115])
-plt.gray()
-plt.subplot(1,2,2)
-plt.title('standardization of intensity')
-plt.imshow(input_data2[:,:,115])
-plt.gray()
-plt.show()
+cv2.imshow("image", input_data)
+cv2.imshow("image2", input_data2)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 
 #Acknowledgment
-#Eduardo Nigri 
-
+#Eduardo Nigri
