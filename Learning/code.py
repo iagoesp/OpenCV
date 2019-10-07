@@ -8,7 +8,7 @@ from pydicom.data import get_testdata_files
 
 #print(__doc__)
 
-name = "dataset/28.dcm"
+name = "dataset/Pattern1/24.dcm"
 #name = "OBXXXX1A.dcm"
 
 split = name.split("/")
@@ -64,8 +64,8 @@ print (windowScale)
 
 newX,newY = newImage.shape[1]/windowScale, newImage.shape[0]/windowScale
 
-imgf = cv2.resize(newImage, (int(newX), int(newY)))   
+imgf = cv2.resize(newImage, (int(newX), int(newY)))
 
-cv2.imshow("image", imgf)  
+cv2.imshow("image", imgf)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
